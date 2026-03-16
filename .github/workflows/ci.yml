@@ -1,0 +1,53 @@
+# .github/workflows/ci.yml
+# Basic CI for Ashfall — runs on every PR to main or dev
+# Checks that the Godot project is valid and GDScript has no errors
+
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+  push:
+    branches:
+      - dev
+
+jobs:
+  validate:
+    name: Validate Godot Project
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Pull LFS assets
+        run: git lfs pull
+
+      - name: Setup Godot
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: 4.3.0
+          use-dotnet: false
+          include-templates: false
+
+      - name: Validate project (headless import)
+        run: |
+          godot --headless --quit --path . 2>&1 | tee godot_output.txt
+          # Fail if Godot reports any script errors
+          if grep -q "ERROR\|SCRIPT ERROR" godot_output.txt; then
+            echo "Godot reported errors during validation"
+            cat godot_output.txt
+            exit 1
+          fi
+          echo "Project validated successfully"
+
+      - name: Upload validation log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: godot-validation-log
+          path: godot_output.txt
