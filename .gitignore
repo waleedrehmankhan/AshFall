@@ -1,0 +1,48 @@
+﻿# =======================
+# Godot 4 â€” .gitignore
+# =======================
+ 
+# Godot editor cache & generated data (Godot 4)
+.godot/
+ 
+# Godot 3 import cache (safe to include for compatibility)
+.import/
+*.import
+ 
+# Export presets (comment out if you want to share export settings)
+# export_presets.cfg
+ 
+# Build / export output
+export/
+builds/
+*.apk
+*.aab
+*.ipa
+*.exe
+*.x86_64
+*.arm64-v8a
+*.pck
+*.zip
+ 
+# Mono / C# build artifacts
+.mono/
+data_*/
+mono_crash.*.json
+ 
+# macOS clutter
+.DS_Store
+.AppleDouble
+__MACOSX/
+ 
+# Windows clutter
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+ 
+# Editor configs
+*.swp
+*.swo
+.idea/
+.vscode/
+*.user
