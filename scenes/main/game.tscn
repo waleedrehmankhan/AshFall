@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://dbx3sii0mmtpa"]
 
 [ext_resource type="PackedScene" uid="uid://cmlmwel5d7qxl" path="res://scenes/player/player.tscn" id="1_e64el"]
+[ext_resource type="Script" uid="uid://3854bmhb5k7i" path="res://scripts/components/game_manager.gd" id="1_kjrfb"]
 [ext_resource type="Texture2D" uid="uid://d1cvuwxxewno6" path="res://assets/sprites/world_tileset.png" id="2_ma5rq"]
+[ext_resource type="FontFile" uid="uid://boy7akteh3ecr" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_se30j"]
 [ext_resource type="PackedScene" uid="uid://c8axy8poxknwn" path="res://scenes/levels/platform.tscn" id="3_e3dby"]
 [ext_resource type="PackedScene" uid="uid://ba3pw27b52nag" path="res://scenes/levels/coin.tscn" id="4_gsayk"]
 [ext_resource type="PackedScene" uid="uid://bpjfx1v8wmlcj" path="res://scenes/levels/killzone.tscn" id="5_gf1f2"]
+[ext_resource type="PackedScene" uid="uid://dyys484sihvyq" path="res://scenes/enemies/slime.tscn" id="6_em1bs"]
+[ext_resource type="FontFile" uid="uid://dfk2mwqucd1fd" path="res://assets/fonts/PixelOperator8.ttf" id="7_0rn35"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e3dby"]
 texture = ExtResource("2_ma5rq")
@@ -244,6 +248,21 @@ _data = {
 
 [node name="Game" type="Node2D" unique_id=1554325434]
 
+[node name="GameManager" type="Node" parent="." unique_id=1165125990]
+unique_name_in_owner = true
+script = ExtResource("1_kjrfb")
+
+[node name="ScoreLabel" type="Label" parent="GameManager" unique_id=1210743071]
+offset_left = 275.0
+offset_top = -206.0
+offset_right = 391.0
+offset_bottom = -165.0
+theme_override_colors/font_color = Color(0.09803922, 0.3137255, 0.7529412, 1)
+theme_override_fonts/font = ExtResource("2_se30j")
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="TileMap" type="TileMap" parent="." unique_id=247685681]
 position = Vector2(-2, 0)
 tile_set = SubResource("TileSet_gsayk")
@@ -306,3 +325,21 @@ autoplay = &"Move"
 
 [node name="Platform4" parent="Platforms" unique_id=291442054 instance=ExtResource("3_e3dby")]
 position = Vector2(718, -59)
+
+[node name="Slime" parent="." unique_id=1768740944 instance=ExtResource("6_em1bs")]
+position = Vector2(459, 32)
+
+[node name="Labels" type="Node" parent="." unique_id=1373352510]
+
+[node name="Label" type="Label" parent="Labels" unique_id=370354706]
+offset_left = -88.0
+offset_top = -95.0
+offset_right = 10.0
+offset_bottom = -65.0
+theme_override_colors/font_color = Color(0.09803922, 0.3137255, 0.7529412, 1)
+theme_override_fonts/font = ExtResource("7_0rn35")
+theme_override_font_sizes/font_size = 8
+text = "Its a start lol
+Dont judge brotha"
+horizontal_alignment = 1
+autowrap_mode = 2
