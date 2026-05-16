@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://dc2rj02aspx3v"]
+
+[ext_resource type="Script" uid="uid://dqyq4adqsdlsx" path="res://scripts/ui/main_menu.gd" id="1_m1kxf"]
+[ext_resource type="Texture2D" uid="uid://cm8on82i3cllv" path="res://assets/textures/ui/wp2641183-duz-siyah-wallpaper.png" id="1_sl1te"]
+[ext_resource type="FontFile" uid="uid://n5aypxl1r1uu" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_fe2o3"]
+[ext_resource type="FontFile" uid="uid://c8r1la41vioim" path="res://assets/fonts/PixelOperator8.ttf" id="3_1g8jr"]
+
+[node name="MainMenu" type="Control" unique_id=976280090]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m1kxf")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=174892733]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_sl1te")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=32566297]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1949882909]
+layout_mode = 2
+theme_override_constants/separation = 90
+
+[node name="Seperator" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1854822684]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1821769739]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_fe2o3")
+theme_override_font_sizes/font_size = 64
+text = "AshFall"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1791460876]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=2105753890]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Start_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=459885196]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1g8jr")
+text = "START GAME"
+
+[node name="Exit_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1892107701]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1g8jr")
+text = "EXIT GAME
+"

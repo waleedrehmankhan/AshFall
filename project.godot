@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="AshFall"
-run/main_scene="uid://dbx3sii0mmtpa"
+run/main_scene="uid://dc2rj02aspx3v"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
